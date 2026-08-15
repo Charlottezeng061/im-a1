@@ -36,9 +36,16 @@ header {
   padding: 30px 8%;
 }
 
-/*Designed navigation bar based on CSS positioning tutorial from MDN.
+/*
+I designed navigation bar from CSS positioning tutorial.
 Sources: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/position
-https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/z-index */
+https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/z-index 
+*/
+
+/* 
+I used opacity to create a softer and lighter visual effect. 
+Source: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/opacity 
+*/
 nav {
   display: flex;
   justify-content: space-between;
@@ -50,7 +57,8 @@ nav {
   right: 4%;
   padding: 20px 30px;
 
-  background-color: rgba(255, 255, 255, 0.7);
+   background-color: white;
+   opacity: 0.8;
 
   border: 1px solid white;
   border-radius: 50px;
@@ -83,6 +91,12 @@ nav a:hover {
 .hero h1 {
   font-size: 7rem;
   line-height: 1.1;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.hero h1:hover {
+  transform: scale(1.05);
+  color: #eee8f8;
 }
 
 .hero {
@@ -94,6 +108,8 @@ nav a:hover {
   text-align: center;
   width: 100%;
 }
+
+
 
 .intro {
   max-width: 500px;
@@ -110,20 +126,22 @@ nav a:hover {
   background-color: white;
   border-radius: 30px;
   text-decoration: none;
+  transition: 0.3s;
 }
 .button:hover {
   background-color: #e1f570;
-  color: rgb(51, 11, 85);
+  color: #242333;
+  transform: scale(1.05);
 }
 
 
 /*//////body//////*/
 
-/* Non-centered radial gradient background learned from the MDN radial-gradient tutorial.
+/* Non-centered radial gradient background learned from the radial-gradient tutorial.
 I changed the color and percentage to make the better match the visual style of my webpage.
 Source: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/gradient/radial-gradient */
 
-/*I learned from the MDN margin tutorial that using auto margins can horizontally centre block elements. 
+/*I learned from the margin tutorial that using auto margins can horizontally centre block elements. 
 I used this method to centre the question cards and section headings while keeping the same maximum width, so their left and right
 edges stay aligned.
 Source: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/margin*/
@@ -160,7 +178,8 @@ section h2 {
   font-size: 8rem;
   line-height: 1;
 
-  color: rgba(255, 255, 255, 0.4);
+  color: white;
+  opacity: 0.8;
 }
 
 
@@ -168,13 +187,33 @@ section h2 {
 
 /*I used a card design inspired by the Luni website to organize the questions and 
 make the webpage more visually engaging and easier to read. */
+
+/* 
+To improve the experience visually, I reduced the opacity of the cards and made it to full opacity when hover them.
+
+I used opacity to make the cards slightly transparent,
+scale() to make them slightly larger on hover,
+and CSS transitions to make the changes happen smoothly.
+
+Source: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/opacity 
+https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/transform-function/scale
+https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Transitions/Using
+*/
+
 .card {
   max-width: 1100px;
   margin: 0 auto 60px auto;
   padding: 35px;
-  background-color: rgba(255, 253, 248, 0.85);
+  background-color: #fffdf8;
+  opacity: 0.8;
   border-radius: 35px;
   text-align: left;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.card:hover {
+  opacity: 1;
+  transform: scale(1.02);
 }
 
 .card p {
@@ -191,9 +230,12 @@ make the webpage more visually engaging and easier to read. */
   gap: 30px;
 }
 
-/* I learned from the MDN Flexbox tutorial that flex: 1 allows flex items
+/* 
+I learned from the Flexbox tutorial that flex: 1 allows flex items
 to share the available space equally inside a flex container.
-Source: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Flexbox */
+Source: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Flexbox 
+*/
+
 .card-row .card {
   flex: 1;
 }
@@ -285,8 +327,43 @@ figure img {
   border-radius: 25px;
 }
 
+.image-row {
+    display: flex;
+    gap: 20px;
+}
 
-/* Timeline learned from the W3Schools CSS Timeline tutorial. 
+.image-row figure {
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.gif-row {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.gif-row figure {
+  width: 45%;
+  margin: 0;
+}
+
+.gif-row img {
+  width: 100%;
+  display: block;
+  border-radius: 15px;
+}
+
+.frustrating-text, .satisfying-text {
+    margin-top: 20px;
+}
+
+
+
+
+/* I used the Timeline layout learned from the CSS Timeline tutorial. 
 I changed the colours, spacing, typography and content to match the visual style of my own page.
 Source: https://www.w3schools.com/howto/howto_css_timeline.asp */
 
@@ -315,10 +392,10 @@ Source: https://www.w3schools.com/howto/howto_css_timeline.asp */
   padding: 5px 15px;
   width: 50%;
 }
+
 .left {
   left: 0;
 }
-
 .right {
   left: 50%;
 }
@@ -380,11 +457,11 @@ Source: https://www.w3schools.com/howto/howto_css_timeline.asp */
 
 
 /*/////footer/////*/
-/*The footer contains my github account link, luni website, and course name.*/
+/*The footer contains my github account link, luni website, and the course name.*/
 footer {
   display: flex;
   justify-content: space-between;
-
+  align-items: center;
   padding: 40px 8%;
 
   color: white;
