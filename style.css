@@ -29,31 +29,6 @@ h4 {
 }
 
 
-/*//////body//////*/
-/* Non-centered radial gradient background learned from the MDN radial-gradient tutorial.
-I changed the color and percentage to make the better match the visual style of my webpage.
-Source: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/gradient/radial-gradient */
-
-body {
-  margin: 0;
-
-  font-family: "helvetica-neue-lt-pro", sans-serif;
-  font-weight: 200;
-  font-style: normal;
-
-  color: #242333;
-  background-image: radial-gradient(
-    farthest-corner at 20% 20%,
-    #f6c6d8 0%,
-    #d7cef2 55%,
-    #91b0f2 100%
-  );
-
-  line-height: 1.6;
-  text-align: center;
-}
-
-
 /*//////header & navigation/////*/
 header {
   min-height: 100vh;
@@ -97,7 +72,8 @@ nav a:hover {
   gap: 20px;
 }
 
-/*hero*/
+
+/*/////hero////*/
 
 .hero {
   margin-top: 170px;
@@ -140,14 +116,45 @@ nav a:hover {
   color: rgb(51, 11, 85);
 }
 
+
+/*//////body//////*/
+
+/* Non-centered radial gradient background learned from the MDN radial-gradient tutorial.
+I changed the color and percentage to make the better match the visual style of my webpage.
+Source: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/gradient/radial-gradient */
+
+/*I learned from the MDN margin tutorial that using auto margins can horizontally centre block elements. 
+I used this method to centre the question cards and section headings while keeping the same maximum width, so their left and right
+edges stay aligned.
+Source: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/margin*/
+
+body {
+  margin: 0;
+
+  font-family: "helvetica-neue-lt-pro", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+
+  color: #242333;
+  background-image: radial-gradient(
+    farthest-corner at 20% 20%,
+    #f6c6d8 0%,
+    #d7cef2 55%,
+    #91b0f2 100%
+  );
+
+  line-height: 1.6;
+}
+
+
 /*sections*/
 section {
   padding: 120px 8%;
 }
 
 section h2 {
-  margin: 0 0 50px 0;
-
+  margin: 0 auto 50px;
+  max-width: 1100px;
   text-align: left;
 
   font-size: 8rem;
@@ -157,35 +164,38 @@ section h2 {
 }
 
 
-/*///// Question cards/////*/
-/*I used a card design inspired by the Luni website to organize the questions
-and make the webpage more visually engaging and easier to read. */
+/* Question cards */
 
+/*I used a card design inspired by the Luni website to organize the questions and 
+make the webpage more visually engaging and easier to read. */
 .card {
-  max-width: 1000px;
-  margin: 0 auto 30px auto;
-  padding: 35px;
   max-width: 1100px;
+  margin: 0 auto 60px auto;
+  padding: 35px;
   background-color: rgba(255, 253, 248, 0.85);
   border-radius: 35px;
-  transition: transform 0.3s ease;
+  text-align: left;
 }
 
 .card p {
-  max-width: 700px;
   margin: 0 auto;
-
   font-size: 1rem;
   line-height: 1.6;
+  text-align: left;
 }
 
 .card-row {
   display: flex;
-  justify-content: center;
-  align-items: stretch;
-
   max-width: 1100px;
+  margin: 0 auto 30px;
   gap: 30px;
+}
+
+/* I learned from the MDN Flexbox tutorial that flex: 1 allows flex items
+to share the available space equally inside a flex container.
+Source: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Flexbox */
+.card-row .card {
+  flex: 1;
 }
 
 .words {
@@ -208,6 +218,35 @@ and make the webpage more visually engaging and easier to read. */
   margin-bottom: 35px;
 }
 
+.interaction-card {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 60px;
+}
+
+.interaction-card h3 {
+  flex: 1;
+  margin: 0;
+}
+
+.interaction-card p {
+  flex: 2;
+  max-width: none;
+  margin: 0;
+
+  text-align: left;
+}
+
+p.scroll-text{
+  margin: 10px 0 20px;
+  font-size: 60rem;
+  line-height: 1;
+  font-weight: 700;
+
+  color: #242333;
+}
+
 .big-words {
   margin: 0 0 40px 0;
 }
@@ -218,14 +257,6 @@ and make the webpage more visually engaging and easier to read. */
   font-size: 3rem;
   line-height: 1.05;
   font-weight: 500;
-}
-
-.purpose-card > p {
-  max-width: none;
-  margin: 0 0 15px 0;
-
-  font-size: 1rem;
-  line-height: 1.6;
 }
 
 /*title*/
@@ -362,4 +393,10 @@ footer {
 
 footer a {
   color: white;
+  text-decoration: none;
+}
+
+footer a:hover{
+    color: #dff04f;
+    text-decoration: underline;
 }
