@@ -1,7 +1,12 @@
 /*///fonts & size///*/
+/*
+I chose Helvetica Neue LT Pro because its clean and modern appearance matches the visual style of the Luni website. 
+I used a heavier weight for headings and a lighter weight for body text to create a clearvisual hierarchy while 
+keeping the page soft and easy to read.
+*/
 
 h1,h2,h3,h4{
-  font-family: "helvetica-neue-lt-pro", sans-serif;
+font-family: "helvetica-neue-lt-pro", sans-serif;
  font-weight: 500;
  font-style: normal;
 }
@@ -30,22 +35,22 @@ h4 {
 
 
 /*//////header & navigation/////*/
+
 header {
-  min-height: 100vh;
 
   padding: 30px 8%;
 }
 
 /*
-I designed navigation bar from CSS positioning tutorial.
-Sources: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/position
-https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/z-index 
+I learned how to use fixed positioning from the MDN CSS positioning documentation.
+I used Flexbox to arrange the navigation content，Fixed positioning to keep the navigation visible
+while the user scrolls through the webpage, and Opacity and rounded corners to create a softer visual style.
+Sources:
+https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/position
+https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/z-index
+https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/opacity 
 */
 
-/* 
-I used opacity to create a softer and lighter visual effect. 
-Source: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/opacity 
-*/
 nav {
   display: flex;
   justify-content: space-between;
@@ -60,7 +65,6 @@ nav {
    background-color: white;
    opacity: 0.8;
 
-  border: 1px solid white;
   border-radius: 50px;
 
   z-index: 10;
@@ -69,10 +73,13 @@ nav {
 nav a {
   color: #242333;
   text-decoration: none;
+  transition: transform 0.3s, color 0.3s;
 }
 
 nav a:hover {
   color: #f4bedc;
+  transform: scale(1.05);
+  font-weight: 500;
 }
 
 .navigation {
@@ -82,6 +89,13 @@ nav a:hover {
 
 
 /*/////hero////*/
+/*
+I added a hover effect to the main title and button to make the opening section feel more interactive. 
+The scale and colour changes provide immediate visual feedback when the user moves the mouse over them.
+Sources: 
+https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/transform-function/scale
+https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Transitions/Using
+*/
 
 .hero {
   margin-top: 170px;
@@ -96,7 +110,8 @@ nav a:hover {
 
 .hero h1:hover {
   transform: scale(1.05);
-  color: #eee8f8;
+  color: white;
+  opacity: 0.7;
 }
 
 .hero {
@@ -109,14 +124,11 @@ nav a:hover {
   width: 100%;
 }
 
-
-
 .intro {
   max-width: 500px;
   margin: 0 auto;
   font-size: 1.2rem;
 }
-
 
 .button {
   display: inline-block;
@@ -137,14 +149,19 @@ nav a:hover {
 
 /*//////body//////*/
 
-/* Non-centered radial gradient background learned from the radial-gradient tutorial.
-I changed the color and percentage to make the better match the visual style of my webpage.
-Source: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/gradient/radial-gradient */
+/* 
+I learned how to create a non-centred radial gradient from the MDN radial-gradient documentation. 
+I changed the colours, position and percentages to create a soft pink, purple and blue background that
+matches the visual direction of the webpage.
+Source: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/gradient/radial-gradient 
+*/
 
-/*I learned from the margin tutorial that using auto margins can horizontally centre block elements. 
-I used this method to centre the question cards and section headings while keeping the same maximum width, so their left and right
-edges stay aligned.
-Source: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/margin*/
+/*
+I learned that using auto margins can horizontally centre block elements from margin tutorial. 
+I used this method to centre the question cards and section headings while keeping the same maximum width,
+so their left and right edges stay aligned.
+Source: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/margin
+*/
 
 body {
   margin: 0;
@@ -166,6 +183,11 @@ body {
 
 
 /*sections*/
+/*
+ Large section headings create a clear separation between the four main parts
+ while keeping their left edges aligned with the question cards.
+ */
+
 section {
   padding: 120px 8%;
 }
@@ -183,17 +205,15 @@ section h2 {
 }
 
 
-/* Question cards */
+/* ////Question cards ////*/
 
-/*I used a card design inspired by the Luni website to organize the questions and 
+/* I used the card design inspired by the Luni website to organize the questions and 
 make the webpage more visually engaging and easier to read. */
 
 /* 
-To improve the experience visually, I reduced the opacity of the cards and made it to full opacity when hover them.
-
-I used opacity to make the cards slightly transparent,
-scale() to make them slightly larger on hover,
-and CSS transitions to make the changes happen smoothly.
+I reduced the normal opacity of the cards and returned them to full opacity on hover.
+I also used scale() to make each card slightly larger and CSS transitions to make these
+changes feel smoother. This provides visual feedback without making the interaction too distracting.
 
 Source: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/opacity 
 https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/transform-function/scale
@@ -223,6 +243,7 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Transitions/Using
   text-align: left;
 }
 
+/* I used Flexbox to place related question cards next to each other. */
 .card-row {
   display: flex;
   max-width: 1100px;
@@ -280,7 +301,7 @@ Source: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_
   text-align: left;
 }
 
-/* I adjusted the width of the Question 8 and the First Impression content
+/* I adjusted the max-width of the Question 8 and the First Impression content
 so that the text fits the size of each card better and shows a more balanced layout. */
 
 .question8 p {
@@ -292,13 +313,16 @@ so that the text fits the size of each card better and shows a more balanced lay
     max-width: 800px;
 }
 
-p.scroll-text{
-  margin: 10px 0 20px;
-  font-size: 60rem;
-  line-height: 1;
-  font-weight: 700;
-
-  color: #242333;
+/* emphasizing scroll word by adding font size and color*/
+.scroll-text{
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #dff04f;
+}
+/* adjust the layout of individual heading with content*/
+.question4 {
+    margin-bottom: 0;
 }
 
 .big-words {
@@ -349,6 +373,13 @@ figure img {
   margin-bottom: 20px;
 }
 
+/*
+I used flex-flow: row wrap to arrange the interaction GIFs from left to right and allow them
+to continue onto a new row. I also centred the items so that the group sits more evenly inside the card.
+
+Source: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Flexbox
+*/
+
 .gif-row {
   display: flex;
   flex-flow: row wrap;
@@ -374,10 +405,16 @@ figure img {
 
 
 
+/*/////Timeline////*/
 
-/* I used the Timeline layout learned from the CSS Timeline tutorial. 
-I changed the colours, spacing, typography and content to match the visual style of my own page.
-Source: https://www.w3schools.com/howto/howto_css_timeline.asp */
+/*
+I used the W3Schools CSS Timeline tutorial to understand how relative and absolute positioning 
+can be used to create a vertical timeline.
+I adapted the spacing, colours, typography and content to suit my own page, and added hover feedback
+to connect each timeline circle with its corresponding text.
+
+Source: https://www.w3schools.com/howto/howto_css_timeline.asp
+*/
 
 .timeline {
   position: relative;
@@ -452,7 +489,12 @@ Source: https://www.w3schools.com/howto/howto_css_timeline.asp */
   line-height: 1.3;
 }
 
-/*hover effect in timeline*/
+/*
+hover effect
+When the user hovers over a timeline item, its circle becomes larger
+and the content background changes colour. This makes the relationship
+between each point and its description easier to recognise.
+*/
 .container::after,
 .content{
   transition: 0.3s;
@@ -469,7 +511,10 @@ Source: https://www.w3schools.com/howto/howto_css_timeline.asp */
 
 
 /*/////footer/////*/
-/*The footer contains my github account link, luni website, and the course name.*/
+/*
+The footer contains my github account link, luni website, and the course name.
+I used Flexbox to keep the information aligned on one horizontal line.
+*/
 footer {
   display: flex;
   justify-content: space-between;
