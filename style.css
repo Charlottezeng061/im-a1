@@ -217,7 +217,7 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Transitions/Using
 }
 
 .card p {
-  margin: 0 auto;
+  margin: 0 auto 15px;
   font-size: 1rem;
   line-height: 1.6;
   text-align: left;
@@ -278,6 +278,18 @@ Source: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_
   margin: 0;
 
   text-align: left;
+}
+
+/* I adjusted the width of the Question 8 and the First Impression content
+so that the text fits the size of each card better and shows a more balanced layout. */
+
+.question8 p {
+  max-width: 900px;
+  margin: 15px auto 0;
+}
+
+.first-impression {
+    max-width: 800px;
 }
 
 p.scroll-text{
