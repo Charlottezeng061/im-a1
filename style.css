@@ -60,7 +60,6 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   position: fixed;
   top: 30px;
   left: 4%;
@@ -71,7 +70,6 @@ nav {
    opacity: 0.8;
 
   border-radius: 50px;
-
   z-index: 10;
 }
 
@@ -330,22 +328,15 @@ so that the text fits the size of each card better and shows a more balanced lay
     margin-bottom: 0;
 }
 
-.big-words {
-  margin: 0 0 40px 0;
+.keywords {
+  margin: 0 0 30px 0;
 }
 
-.big-words p {
+.keywords p {
   margin: 0;
-
   font-size: 3rem;
   line-height: 1.05;
   font-weight: 500;
-}
-
-/*title*/
-
-#purpose h2 {
-  margin-bottom: 30px;
 }
 
 .big-text {
@@ -407,7 +398,6 @@ Source: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_
 .frustrating-text, .satisfying-text {
     margin-top: 20px;
 }
-
 
 
 /*/////Timeline////*/
