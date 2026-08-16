@@ -35,9 +35,14 @@ h4 {
 
 
 /*//////header & navigation/////*/
+/*
+I learned from the MDN CSS values and units tutorial that vh is relative to the height of the viewport. 
+I used 100vh to make the header fill the first screen.
+Source: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Values_and_units
+*/
 
 header {
-
+  height: 100vh; 
   padding: 30px 8%;
 }
 
